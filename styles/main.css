@@ -1,51 +1,104 @@
-/* ===== GLOBAL STYLE ===== */
+/* ===== GLOBAL ===== */
 body {
     background: #f7f9fc !important;
 }
 
 .block-container {
-    padding-top: 2rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-top: 1rem;
 }
 
-/* ===== HEADER TITLE ===== */
+/* ===== TITLE ===== */
 .big-title {
     font-size: 42px;
     font-weight: 800;
     text-align: center;
-    margin-top: -10px;
-    color: #2b2b2b;
+    color: #1f1f1f;
+    margin-bottom: -5px;
 }
 
 .subtitle {
     font-size: 18px;
     text-align: center;
-    color: #6e6e6e;
+    color: #707070;
     margin-bottom: 40px;
 }
 
-/* ===== BOX STYLE ===== */
-.box {
-    background: #ffffff;
-    padding: 28px;
-    border-radius: 15px;
-    box-shadow: 0px 6px 20px rgba(0,0,0,0.05);
-    margin-bottom: 35px;
+/* Dataset badge */
+.dataset-info {
+    text-align: center;
+    padding: 10px 20px;
+    background: #e8efff;
+    border-left: 5px solid #8CA9FF;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+/* ===== SECTION ===== */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 700;
+}
+
+/* ===== INPUTS ===== */
+.label-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.stSelectbox > div > div,
+.stNumberInput input {
+    border-radius: 10px !important;
+    border: 1px solid #dbe3f2 !important;
+}
+
+.stSelectbox > div > div:hover,
+.stNumberInput input:hover {
+    border-color: #8CA9FF !important;
+}
+
+/* Remove orange hover */
+.css-1y4p8pa:hover, 
+.css-q8sbsg:hover {
+    border-color: #8CA9FF !important;
+    box-shadow: none !important;
 }
 
 /* ===== BUTTON ===== */
 .stButton > button {
-    background: #2563eb;
-    color: #fff;
-    padding: 0.8rem;
-    border-radius: 10px;
-    font-size: 16px;
+    background: #8CA9FF !important;
+    color: white !important;
+    padding: 12px;
+    border-radius: 12px;
     width: 100%;
     border: none;
+    font-size: 16px;
+    font-weight: 500;
 }
 .stButton > button:hover {
-    background: #1e4fcf;
+    background: #8CA9FF !important;
+}
+
+/* ===== SLIDER (BLUE FIXED) ===== */
+.stSlider > div[data-baseweb="slider"] .css-1gv0vcd {
+    background: #8CA9FF !important;
+}
+
+.stSlider > div[data-baseweb="slider"] .css-14pt78w {
+    background: #dbeafe !important;
+}
+
+.stSlider > div[data-baseweb="slider"] .css-eg0mwd {
+    background: #8CA9FF !important;
+    border: 3px solid white !important;
 }
 
 /* ===== TABLE ===== */
@@ -54,22 +107,10 @@ table {
     overflow: hidden;
 }
 
-/* ===================== */
-/* SLIDER — UBAH WARNA   */
-/* ===================== */
-
-/* Garis penuh (track belakang) */
-.stSlider > div[data-baseweb="slider"] .css-14pt78w {
-    background: #dbeafe !important; /* biru muda */
+/* Title "Nilai Alpha" */
+.label-title {
+    font-size: 13px;
+    text-align: center;
+    color: #37353E;
 }
 
-/* Garis aktif (yang tadinya oranye) */
-.stSlider > div[data-baseweb="slider"] .css-1gv0vcd {
-    background: #1d4ed8 !important; /* biru */
-}
-
-/* Bulatan slider */
-.stSlider > div[data-baseweb="slider"] .css-eg0mwd {
-    background: #1d4ed8 !important; /* biru */
-    border: 3px solid white !important;
-}
