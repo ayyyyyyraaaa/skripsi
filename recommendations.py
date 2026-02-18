@@ -3,9 +3,7 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# =======================
 # UTIL: NORMALIZE NAME
-# =======================
 def normalize_name(text):
     if pd.isna(text):
         return ""
@@ -14,9 +12,7 @@ def normalize_name(text):
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
-# =======================
 # LOAD DATASET
-# =======================
 def load_dataset():
     df = pd.read_csv("skincare_ingredients.csv")
     df.columns = [c.strip() for c in df.columns]
@@ -43,17 +39,13 @@ def load_dataset():
 
     return df
 
-# =======================
 # BUILD SIMILARITY
-# =======================
 def build_similarity(df):
     tfidf = TfidfVectorizer()
     tfidf_matrix = tfidf.fit_transform(df["ingredients_clean"])
     return cosine_similarity(tfidf_matrix)
 
-# =======================
 # HYBRID RECOMMENDER
-# =======================
 def hybrid_recommend_by_index(idx, df, cosine_matrix, alpha=0.7, k=5, user_skin=None):
     ingredient_sim = cosine_matrix[idx]
 
