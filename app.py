@@ -10,48 +10,37 @@ from recommendations import (
 from evaluation import precision_at_k_single
 
 
-# =======================
 # SESSION STATE
-# =======================
 if "submitted" not in st.session_state:
     st.session_state.submitted = False
 
-# =======================
 # LOAD CSS
-# =======================
 with open("styles/main.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# =======================
 # SIDEBAR
-# =======================
 st.sidebar.title("Navigasi")
 menu = st.sidebar.radio(
     "Pilih Menu",
     ["Rekomendasi Produk", "Dataset & Insight"]
 )
 
-# =======================
 # HEADER
-# =======================
 st.markdown("<div class='big-title'>Sistem Rekomendasi Skincare</div>", unsafe_allow_html=True)
 st.markdown(
     "<div class='subtitle'>Rekomendasi berbasis ingredients & jenis kulit</div>",
     unsafe_allow_html=True
 )
 
-# =======================
 # LOAD DATA
-# =======================
 df = load_dataset()
 cosine_sim = build_similarity(df)
 
 brand_count = df["brand"].nunique()
 label_count = df["Label"].nunique()
 
-# =======================
+
 # MENU 1 — REKOMENDASI
-# =======================
 if menu == "Rekomendasi Produk":
 
     st.markdown(
@@ -66,7 +55,7 @@ if menu == "Rekomendasi Produk":
 
     st.subheader("Input Produk")
 
-    # 🔍 SEARCH
+    # SEARCH
     search = st.text_input("Cari Produk", placeholder="misal: toner, moisturizer")
 
     if search:
@@ -92,9 +81,7 @@ if menu == "Rekomendasi Produk":
     if st.button("Dapatkan Rekomendasi"):
         st.session_state.submitted = True
 
-    # =======================
-    # HASIL
-    # =======================
+    # HASIL 
     if st.session_state.submitted:
         st.subheader("Hasil Rekomendasi")
 
@@ -125,9 +112,7 @@ if menu == "Rekomendasi Produk":
 
             st.metric("Precision@K (Evaluasi Individual)", round(precision, 3))
 
-# =======================
 # MENU 2 — DATASET
-# =======================
 elif menu == "Dataset & Insight":
 
     st.subheader("Dataset & Insight")
